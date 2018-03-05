@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    <!--Font Awesome-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
     <div id="app">
@@ -40,7 +43,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">Блог</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">Категории</a>
+                                    <a href="{{route('admin.category.index')}}">Категории</a>
                                     <a href="#">Материалы</a>
                                 </li>
                             </ul>
