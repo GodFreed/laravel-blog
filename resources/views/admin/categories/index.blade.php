@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     @component('admin.components.breadcrumb')
-    @slot('title') Список категорий @endslot
-    @slot('parent') Главная @endslot
-    @slot('active') Категории @endslot
+        @slot('title') Список категорий @endslot
+        @slot('parent') Главная @endslot
+        @slot('active') Категории @endslot
     @endcomponent
     
     <hr>
@@ -36,7 +36,7 @@
             <tr>
                 <td colspan="3">
                     <ul class="pagination pull-right">
-                        {{$categories->links}}
+                        {{$categories->links()}}
                     </ul>
                 </td>
             </tr>
