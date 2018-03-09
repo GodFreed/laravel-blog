@@ -18,7 +18,7 @@
 <label for="parent_id">Родительская категория</label>
 <select name="parent_id" class="form-control">
     <option value="0">-- без родительской категории --</option>
-    @include('admin.categories.partials.categories', ['categories' => $categories])
+    @include('admin.categories.partials.categories')
 </select>
 
 <hr>
