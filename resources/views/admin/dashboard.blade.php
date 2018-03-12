@@ -33,12 +33,14 @@
                     <p class="list-group-item-text">{{$category->articles()->count()}}</p>
                 </a>
             @endforeach
-        </div><!-- pluck() возвращает значения для ключа в виде масива -->
+        </div>
        <div class="col-sm-6">  
            <a href="{{route('admin.article.create')}}" class="btn btn-block btn-default">Создать материал</a>
            @foreach($articles as $article)
                <a href="{{route('admin.article.edit', $article)}}" class="list-group-item">
                    <h4 class="list-group-item-heading">{{$article->title}}</h4>
+                   
+                   <!-- pluck() возвращает значения для ключа в виде масива -->
                    <p class="list-group-item-text">{{$article->categories()->pluck('title')->implode(', ')}}</p>
                </a>
            @endforeach

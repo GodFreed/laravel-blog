@@ -20,6 +20,7 @@ class Category extends Model
     }
     
     //Обратная полиморфная связь с новостями
+    //Получить все новости категории
     public function articles() {
         return $this->morphedByMany('App\Article', 'entity');
     }

@@ -17,7 +17,30 @@ $factory->define(App\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm',
         'remember_token' => str_random(10),
+    ];
+});
+
+//Создание нескольких администраторов
+$factory->defineAs(App\User::class, 'admin', function(Faker $faker) {
+    return [
+        'name' => 'admin',
+        'email' => $faker->unique()->safeEmail,
+        'password' => bcrypt('123456'),
+        'remember_token' => str_random(10)
+    ];
+});
+
+//Создание нескольких случайных пользователей
+$factory->defineAs(App\User::class, 'users', function(Faker $faker) {
+    //Смена локализации(переопределение объекта)
+    $faker = \Faker\Factory::create('ru_RU');
+    
+    return [
+        'name' => $faker->firstName,
+        'email' => $faker->unique()->safeEmail,
+        'password' => bcrypt('123456'),
+        'remember_token' => str_random(10)
     ];
 });
