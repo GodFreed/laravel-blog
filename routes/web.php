@@ -17,9 +17,14 @@ Route::get('/', function () {
     return view('blog.home');
 });
 
-Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']], function() {
-    Route::get('/', 'DashboardController@dashboard')->name('admin.dashboard');
-    Route::resource('/category', 'CategoryController', ['as'=>'admin']); Route::resource('/article', 'ArticleController', ['as'=>'admin']);//as=>admin - префикс к имени маршрута name('admin.category.index');
+//'as'=>'admin.' - префикс к именам маршрута name('admin.category.index');
+Route::group(['prefix'=>'admin', 'as'=>'admin.', 'namespace'=>'Admin', 'middleware'=>['auth']], function() {
+    Route::get('/', 'DashboardController@dashboard')->name('dashboard');
+    Route::resource('/category', 'CategoryController');
+    Route::resource('/article', 'ArticleController');
+    Route::group(['prefix'=>'user_managment', 'namespace'=>'UserManagment', 'as'=>'user_managment.'], function() {
+        Route::resource('/user', 'UserController');
+    });
 });
 
 Auth::routes();
